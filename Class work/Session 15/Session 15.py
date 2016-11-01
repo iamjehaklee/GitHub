@@ -97,5 +97,64 @@ def main():
     print(box.height)
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
+
+#--------------------------------------------------------------------------------Exercise 2------------------------------------------------------------------------------------------------
+
+
+class Circle: 
+ """Represents a point in 2-D space.
+     attributes: x, y
+ """
+
+class Point:
+    """Represents a point in 2-D space.
+    attributes: x, y
+    """
+my_point = Point()
+my_point.x = 1
+my_point.y = 1
+
+class Rectangle:
+    """Represents a rectangle. 
+    attributes: width, height, corner.
+    Corner is a point type 
+    """
+
+
+def point_in_circle(point,circle):
+    if (point.x > (circle.center.x + circle.radius)) or (point.x < (circle.center.x - circle.radius)):
+        return False
+    elif (point.y > (circle.center.y + circle.radius)) or (point.y > (circle.center.y - circle.radius)):
+        return False 
+    else:
+        return True
+
+
+def rect_in_circle(rect, circle):
+    if (rect.corner.x > (circle.center.x + circle.radius)) or (rect.corner.x < (circle.center.x - circle.radius)):
+        return False
+    elif (rect.corner.y > (circle.center.y + circle.radius)) or (rect.corner.y > (circle.center.y - circle.radius)):
+        return False 
+    else:
+        return True 
+
+def main():
+    my_circle = Circle()
+    my_circle.center = my_point
+    my_circle.center.x = 150
+    my_circle.center.y = 100
+    my_circle.radius = 75 
+
+    print(point_in_circle(my_point, my_circle))
+
+    jerry_rect = Rectangle()
+    jerry_rect.width = 10
+    jerry_rect.height = 10
+    jerry_rect.corner = my_point
+
+    print(rect_in_circle(jerry_rect, my_circle))
+
+main()
+
